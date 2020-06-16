@@ -132,6 +132,7 @@ class UpgradeWorkflow_baseline(UpgradeWorkflow):
         return True
 upgradeWFs['baseline'] = UpgradeWorkflow_baseline(
     steps =  [
+        'GenOnly',
         'GenSimFull',
         'GenSimHLBeamSpotFull',
         'GenSimHLBeamSpotFull14',
@@ -665,11 +666,13 @@ upgradeProperties[2017] = {
     },
     '2018' : {
         'Geom' : 'DB:Extended',
-        'GT' : 'auto:phase1_2018_realistic',
+       # 'GT' : 'auto:phase1_2018_realistic',
+        'GT' : '102X_upgrade2018_realistic_v11',
         'HLTmenu': '@relval2018',
         'Era' : 'Run2_2018',
         'BeamSpot': 'Realistic25ns13TeVEarly2018Collision',
-        'ScenToRun' : ['GenSimFull','DigiFull','RecoFull','HARVESTFull','ALCAFull','NanoFull'],
+      #  'ScenToRun' : ['GenSimFull','DigiFull','RecoFull','HARVESTFull','ALCAFull','NanoFull'], 
+        'ScenToRun' : ['GenOnly'],
     },
     '2018Design' : {
         'Geom' : 'DB:Extended',
@@ -979,5 +982,6 @@ upgradeFragments = OrderedDict([
     ('BuMixing_BMuonFilter_forSTEAM_14TeV_TuneCP5_cfi', UpgradeFragment(Kby(900,10000),'BuMixing_14')),
     ('Upsilon1SToMuMu_forSTEAM_14TeV_TuneCP5_cfi', UpgradeFragment(Kby(9,50),'Upsilon1SToMuMu_14')),
     ('TenTau_E_15_500_Eta3p1_pythia8_cfi', UpgradeFragment(Kby(9,100),'TenTau_15_500_Eta3p1')),
+    ('BPH-RunIIFall18GS-00219_cfi', UpgradeFragment(Kby(150,100),'BPH-RunIIFall18GS-00219')),
 ])
 
